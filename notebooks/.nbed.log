@@ -1,0 +1,101 @@
+2025-06-24 13:50:18,733: nbed.utils: DEBUG: Logging initialised.
+2025-06-24 13:50:27,937: nbed.driver: DEBUG: Initialising driver.
+2025-06-24 13:50:27,938: nbed.driver: DEBUG: Constructing molecule.
+2025-06-24 13:50:27,938: nbed.driver: INFO: Input geometry is not an existing file. Assumng raw xyz input.
+2025-06-24 13:50:27,938: nbed.driver: INFO: Input geometry: 3
+
+O 0.0 0.0 0.0
+H 0.0 0.758081 -0.635808
+H -0.0 -0.758081 -0.635808
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Molecule built.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Number of active atoms valid.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Closed shells, using restricted SCF.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Embedding molecule.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Getting localized system using spade.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Running full system KS DFT.
+2025-06-24 13:50:27,941: nbed.driver: DEBUG: Constructing molecule.
+2025-06-24 13:50:27,941: nbed.driver: INFO: Input geometry is not an existing file. Assumng raw xyz input.
+2025-06-24 13:50:27,941: nbed.driver: INFO: Input geometry: 3
+
+O 0.0 0.0 0.0
+H 0.0 0.758081 -0.635808
+H -0.0 -0.758081 -0.635808
+2025-06-24 13:50:27,943: nbed.driver: DEBUG: Molecule built.
+2025-06-24 13:50:27,992: h5py._conv: DEBUG: Creating converter from 5 to 3
+2025-06-24 13:50:28,029: nbed.driver: INFO: Global RKS: -75.32010048507048
+2025-06-24 13:50:28,029: nbed.localizers.base: DEBUG: Initialising Localizer.
+2025-06-24 13:50:28,029: nbed.localizers.spade: DEBUG: Localising with SPADE.
+2025-06-24 13:50:28,029: nbed.localizers.spade: DEBUG: 5 active AOs.
+2025-06-24 13:50:28,034: nbed.localizers.spade: DEBUG: Singular Values: [1.         1.         1.         0.75110102 0.74293593]
+2025-06-24 13:50:28,034: nbed.localizers.spade: DEBUG: 3 active MOs.
+2025-06-24 13:50:28,034: nbed.localizers.spade: DEBUG: 2 environment MOs.
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: Localization complete.
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: Localized orbitals:
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: active_MO_inds: [0 1 2]
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: beta_active_MO_inds: None
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: enviro_MO_inds: [3 4]
+2025-06-24 13:50:28,034: nbed.localizers.base: DEBUG: beta_enviro_MO_inds: None
+2025-06-24 13:50:28,034: nbed.driver: INFO: Indices of embedded electrons:
+2025-06-24 13:50:28,034: nbed.driver: INFO: [0 1 2]
+2025-06-24 13:50:28,034: nbed.driver: INFO: [3 4]
+2025-06-24 13:50:28,034: nbed.driver: DEBUG: Calculating active and environment subsystem terms.
+2025-06-24 13:50:28,034: nbed.driver: DEBUG: Finding subsystem RKS componenets.
+2025-06-24 13:50:28,034: nbed.driver: DEBUG: (7, 7)
+2025-06-24 13:50:28,040: nbed.driver: DEBUG: Subsystem RKS components found.
+2025-06-24 13:50:28,040: nbed.driver: DEBUG: {e_act=}
+2025-06-24 13:50:28,040: nbed.driver: DEBUG: {two_e_term=}
+2025-06-24 13:50:28,040: nbed.driver: DEBUG: Finding subsystem RKS componenets.
+2025-06-24 13:50:28,040: nbed.driver: DEBUG: (7, 7)
+2025-06-24 13:50:28,044: nbed.driver: DEBUG: Subsystem RKS components found.
+2025-06-24 13:50:28,045: nbed.driver: DEBUG: {e_act=}
+2025-06-24 13:50:28,045: nbed.driver: DEBUG: {two_e_term=}
+2025-06-24 13:50:28,045: nbed.driver: DEBUG: Calculating two electron cross subsystem energy.
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: j_cross=np.float64(16.430547634773287)
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: e_xc_total=np.float64(-9.426147991670504)
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: two_e_act.exc=np.float64(-7.220310701045105)
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: two_e_env.exc=np.float64(-1.77687887370091)
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: RKS components
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: e_act: -77.32580337446393
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: e_env: -22.90234111321318
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: two_e_cross: 16.0015892178488
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: e_nuc: 8.906454784757857
+2025-06-24 13:50:28,049: nbed.driver: DEBUG: Getting global DFT potential to optimize embedded calc in.
+2025-06-24 13:50:28,060: nbed.driver: INFO: DFT potential average 0.43825187066901133.
+2025-06-24 13:50:28,060: nbed.driver: DEBUG: Runnning embedding with mu projector.
+2025-06-24 13:50:28,060: nbed.driver: DEBUG: Constructing localised RHF object.
+2025-06-24 13:50:28,060: nbed.driver: DEBUG: Constructing molecule.
+2025-06-24 13:50:28,060: nbed.driver: INFO: Input geometry is not an existing file. Assumng raw xyz input.
+2025-06-24 13:50:28,060: nbed.driver: INFO: Input geometry: 3
+
+O 0.0 0.0 0.0
+H 0.0 0.758081 -0.635808
+H -0.0 -0.758081 -0.635808
+2025-06-24 13:50:28,061: nbed.driver: DEBUG: Molecule built.
+2025-06-24 13:50:28,061: nbed.driver: DEBUG: Running embedded scf calculation.
+2025-06-24 13:50:28,074: nbed.driver: INFO: Embedded scf energy MU_SHIFT: -52.11029719422399, converged: True
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Deleting environment from SCF object.
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Deleting environment for spin.
+2025-06-24 13:50:28,074: nbed.driver: INFO: Orbital indices for embedded system: [0, 1, 2, 3, 4]
+2025-06-24 13:50:28,074: nbed.driver: INFO: Orbital indices removed from embedded system: [5, 6]
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Spin environment deleted.
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Environment deleted.
+2025-06-24 13:50:28,074: nbed.driver: INFO: V emb mean mu: 90665.67762096983
+2025-06-24 13:50:28,074: nbed.driver: INFO: RHF energy: -75.1401288403274
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Classical energy: -14.12337686134556
+2025-06-24 13:50:28,074: nbed.driver: DEBUG: Performing virtual localization.
+2025-06-24 13:50:28,074: nbed.localizers.spade: DEBUG: Localising virtual orbital spin with concentric localization.
+2025-06-24 13:50:28,074: nbed.localizers.spade: DEBUG: Creating projected molecule object.
+2025-06-24 13:50:28,074: nbed.localizers.spade: DEBUG: n_act_proj_aos=np.int64(5)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: N effective virtuals: (7, 2)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: Singular values: [0.23183372 0.16293098]
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: Initial c_total.shape=(7, 3) (nocc)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: shell_size=np.int64(2)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: v_span.shape=(2, 2)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: v_ker.shape=(2, 0)
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: Created 0th shell.
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: No kernel for 0th shell, cannot perform CL.
+2025-06-24 13:50:28,075: nbed.localizers.spade: DEBUG: This is expected for molecules with majority active MOs occupied.
+2025-06-24 13:50:28,075: nbed.driver: INFO: Embedding complete.
+2025-06-24 13:50:28,075: nbed.driver: DEBUG: Driver initialisation complete.
+2025-06-24 13:50:28,075: nbed.driver: DEBUG: Starting embedded CCSD calculation.
+2025-06-24 13:50:28,083: nbed.driver: INFO: Embedded CCSD energy: -0.00500003601145239

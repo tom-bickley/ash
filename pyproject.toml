@@ -11,7 +11,11 @@ requires-python = ">= 3.7, < 3.12"
 #geometric and numpy main dependencies
 dependencies = [
     'geometric >=1.0.1',
-    'numpy', 'packaging', 'pytest',
+    "ipykernel>=6.16.2",
+    "nbed>=0.0.1",
+    'numpy',
+    'packaging',
+    'pytest',
 ]
 #optional dependencies
 
