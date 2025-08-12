@@ -223,9 +223,14 @@ class TorchTheory():
         # AIMNet2
         if 'aimnet2' in str(self.model).lower():
             input_data = {'coord':current_coords, 'numbers':elemstonuccharges(qm_elems), 'charge':charge, 'mult':mult}
-            results = self.model(input_data, forces=Grad, stress=False, hessian=False)
-            # print("results:", results)
+            results = self.model(input_data, forces=Grad, stress=False, hessian=Hessian)
+            print("results:", results)
             self.energy = results["energy"].item() / ash.constants.hartoeV
+
+            # Charges
+            self.charges = results["charges"].tolist()
+            print("AIMNet2 charges:", self.charges)
+
             if Grad:
                 self.gradient = -1*(0.03674932217565499/1.88972612546)*results["forces"].detach().cpu().numpy()
             if Hessian:
@@ -241,8 +246,7 @@ class TorchTheory():
             energy_tensor = self.model((nuc_charges_torch, coords_torch))
             print("here")
             print("energy_tensor:", energy_tensor)
-            exit()
-            
+
             energy_tensor = self.model((nuc_charges_torch, coords_torch)).energies
             self.energy = energy_tensor.item()
 
