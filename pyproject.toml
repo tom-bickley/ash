@@ -14,8 +14,15 @@ dependencies = [
     "ipykernel>=6.16.2",
     "nbed>=0.0.1",
     'numpy',
+    "openff-toolkit",
+    "openff-units",
+    "openforcefields",
+    "openmm>=8.3.1",
+    "openmmforcefields",
     'packaging',
+    "parmed>=4.0.0",
     'pytest',
+    "rdkit>=2025.3.5",
 ]
 #optional dependencies
 
@@ -28,3 +35,9 @@ include = ['ash*', 'ash.external', 'ash.functions','ash.interfaces','ash.knarr',
 
 [tool.setuptools.package-data]
 "*" = ["*.*"] #
+
+[tool.uv.sources]
+openff-toolkit = { git = "https://github.com/openforcefield/openff-toolkit.git" }
+openff-units = { git = "https://github.com/openforcefield/openff-units.git" }
+openmmforcefields = { git = "https://github.com/openmm/openmmforcefields.git" }
+openforcefields = { git = "https://github.com/openforcefield/openff-forcefields.git" }

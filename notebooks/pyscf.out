@@ -1,0 +1,41 @@
+
+
+******** <class 'pyscf.scf.hf.RHF'> ********
+method = RHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-08
+SCF conv_tol_grad = None
+SCF max_cycles = 50
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = pyscf.chk
+max_memory 3100 MB (current use 0 MB)
+cond(S) = 9.661455488926805
+Set gradient conv threshold to 0.0001
+E1 = -235.19273538576306  E_coul = 81.61060633890332
+init E= -113.5491128447
+    CPU time for initialize scf      0.01 sec, wall time      0.01 sec
+  HOMO = -0.358887202045521  LUMO = 0.573342840890032
+  mo_energy =
+[-20.26405797 -11.08631987  -1.28024029  -0.87648354  -0.61151693
+  -0.57084098  -0.51936166  -0.41805291  -0.3588872    0.57334284
+   0.65300593   0.69439214   0.7248868    0.73331969]
+E1 = -235.19273523601004  E_coul = 81.61060618914807
+cycle= 1 E= -113.549112844702  delta_E= -2.22e-12  |g|= 7.66e-07  |ddm|= 3.53e-06
+    CPU time for cycle= 1      0.00 sec, wall time      0.00 sec
+  HOMO = -0.358887317274573  LUMO = 0.573342773294195
+  mo_energy =
+[-20.26405831 -11.08631952  -1.28024042  -0.87648343  -0.61151696
+  -0.57084087  -0.51936165  -0.41805295  -0.35888732   0.57334277
+   0.65300595   0.69439232   0.72488688   0.73331978]
+E1 = -235.1927352167961  E_coul = 81.61060616993376
+Extra cycle  E= -113.549112844703  delta_E= -3.98e-13  |g|= 2.93e-07  |ddm|= 1.31e-06
+    CPU time for scf_cycle      0.01 sec, wall time      0.01 sec
+    CPU time for SCF      0.01 sec, wall time      0.01 sec
+converged SCF energy = -113.549112844703

@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.7, <3.12"
 resolution-markers = [
     "python_full_version >= '3.11'",
@@ -290,10 +290,18 @@ dependencies = [
     { name = "numpy", version = "1.23.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.8.*'" },
     { name = "numpy", version = "1.24.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "openff-toolkit" },
+    { name = "openff-units" },
+    { name = "openforcefields" },
+    { name = "openmm" },
+    { name = "openmmforcefields" },
     { name = "packaging", version = "24.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
     { name = "packaging", version = "25.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
+    { name = "parmed", version = "4.0.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
+    { name = "parmed", version = "4.3.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.8'" },
     { name = "pytest", version = "7.4.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "pytest", version = "8.4.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "rdkit" },
 ]
 
 [package.metadata]
@@ -302,8 +310,15 @@ requires-dist = [
     { name = "ipykernel", specifier = ">=6.16.2" },
     { name = "nbed", specifier = ">=0.0.1" },
     { name = "numpy" },
+    { name = "openff-toolkit", git = "https://github.com/openforcefield/openff-toolkit.git" },
+    { name = "openff-units", git = "https://github.com/openforcefield/openff-units.git" },
+    { name = "openforcefields", git = "https://github.com/openforcefield/openff-forcefields.git" },
+    { name = "openmm", specifier = ">=8.3.1" },
+    { name = "openmmforcefields", git = "https://github.com/openmm/openmmforcefields.git" },
     { name = "packaging" },
+    { name = "parmed", specifier = ">=4.0.0" },
     { name = "pytest" },
+    { name = "rdkit", specifier = ">=2025.3.5" },
 ]
 
 [[package]]
@@ -5053,6 +5068,47 @@ wheels = [
 ]
 
 [[package]]
+name = "openff-toolkit"
+version = "0.16.10.post3+g143a70fe"
+source = { git = "https://github.com/openforcefield/openff-toolkit.git#143a70fe42b53288b18f331ed6b1b65c55e766bf" }
+
+[[package]]
+name = "openff-units"
+version = "0.3.1.post7+g6ea7183"
+source = { git = "https://github.com/openforcefield/openff-units.git#6ea7183ce549ea193b1cbb72c38efeaefd6b329c" }
+
+[[package]]
+name = "openforcefields"
+version = "2024.9.0+21.gb23ea88"
+source = { git = "https://github.com/openforcefield/openff-forcefields.git#b23ea882111c995a39506429b45ed1623a42671d" }
+
+[[package]]
+name = "openmm"
+version = "8.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy", version = "1.21.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
+    { name = "numpy", version = "1.23.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.8.*'" },
+    { name = "numpy", version = "1.24.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e6/38/40c65c23655885af02a8a26a668d7d45a8b1b528111cbecb03214adc607b/openmm-8.3.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:1b5648b81774d7743c6ef7641220425c4ecb3910b9046c1d1a5626c4ed1ca89d", size = 12957129, upload-time = "2025-07-19T00:27:41.924Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/da/0b2d2b9dcd59a0013d40122b44be1884d336dd712903c3ecbd365b77f72f/openmm-8.3.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c0e19f15f056f7dbf2a00d9601cd30263ab92996124aaa03c3a84ccfe2cc1519", size = 12531565, upload-time = "2025-07-19T00:27:47.35Z" },
+    { url = "https://files.pythonhosted.org/packages/a0/9b/ff0af51b3a54de684f75d761f9b3ecd4cf743b8572df05b04f4971c4f92a/openmm-8.3.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:6c9dd8dca7ad751c79e20cf8ef17643f66c28138deff62d88e9c7e12ac562c30", size = 14020315, upload-time = "2025-07-19T00:27:52.543Z" },
+    { url = "https://files.pythonhosted.org/packages/15/51/ea370c0ad2407dfae440dd71ae30ef3cd8f57d7dc578e2c6925523b447b6/openmm-8.3.1-cp310-cp310-win_amd64.whl", hash = "sha256:5f70ce5c92bebf1dfc59ecd2278dc0b6089332262fcb65bf8df23c865acd3be6", size = 12835317, upload-time = "2025-07-19T00:27:58.285Z" },
+    { url = "https://files.pythonhosted.org/packages/20/11/f5e7f26321f12e31307e86a9b2c94c7cc8e6471c102fb31e7df16eee9715/openmm-8.3.1-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:8a7e7be8cb6b61fa6c6cf071666885172f2d366caddaa9f2c4c6f101659259fb", size = 12958252, upload-time = "2025-07-19T00:28:04.121Z" },
+    { url = "https://files.pythonhosted.org/packages/93/9e/7baeed175f9baf7a5830b3b45560485038feba9e15cc9ec532ee6a500667/openmm-8.3.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:f79a56a186297f6660797f6e3bff31246dcd3a11c2e478430c6ad7f44109dad1", size = 12532867, upload-time = "2025-07-19T00:28:09.103Z" },
+    { url = "https://files.pythonhosted.org/packages/0d/9d/5b7199d01ac92acfb2f5038ec433c10fc8df30839675f029395168d46a05/openmm-8.3.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:5a80872967adfadb4619df8b72b0d50b5a79c2261134713ee243b0e394645ccd", size = 14021672, upload-time = "2025-07-19T00:28:14.299Z" },
+    { url = "https://files.pythonhosted.org/packages/f4/67/d410af2f8575c5fbbd4bdc80bceb1047c18907ad8535574710db60c6327d/openmm-8.3.1-cp311-cp311-win_amd64.whl", hash = "sha256:26bee9e9c13307435981f62a5e363268749ae04b8b554cf2a1986fd5dcd2316a", size = 12834803, upload-time = "2025-07-19T00:28:18.775Z" },
+]
+
+[[package]]
+name = "openmmforcefields"
+version = "0.15.0+1.ga9a41bb"
+source = { git = "https://github.com/openmm/openmmforcefields.git#a9a41bbcef45850ab964d6374e3d543313d9b531" }
+
+[[package]]
 name = "opt-einsum"
 version = "3.4.0"
 source = { registry = "https://pypi.org/simple" }
@@ -5275,6 +5331,30 @@ sdist = { url = "https://files.pythonhosted.org/packages/70/6f/3dd4940bbe001c06a
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ef/af/4fbc8cab944db5d21b7e2a5b8e9211a03a79852b1157e2c102fcc61ac440/pandocfilters-1.5.1-py2.py3-none-any.whl", hash = "sha256:93be382804a9cdb0a7267585f157e5d1731bbe5545a85b268d6f5fe6232de2bc", size = 8663, upload-time = "2024-01-18T20:08:11.28Z" },
 ]
+
+[[package]]
+name = "parmed"
+version = "4.0.0"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.7.1' and python_full_version < '3.8' and platform_machine != 'aarch64' and platform_machine != 'arm64'",
+    "python_full_version >= '3.7.1' and python_full_version < '3.8' and platform_machine == 'aarch64'",
+    "python_full_version >= '3.7.1' and python_full_version < '3.8' and platform_machine == 'arm64'",
+    "python_full_version < '3.7.1'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6b/b6/040189f8ecb7fc2233d408b2c575ca0a1383c2fe6945c3462015c156bae5/ParmEd-4.0.0.tar.gz", hash = "sha256:35d0ca6ae2e136f6ae02bd0a465a621518eff440531e2a136e3d6bab3b43029b", size = 2266110, upload-time = "2023-01-27T17:20:35.464Z" }
+
+[[package]]
+name = "parmed"
+version = "4.3.0"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.11'",
+    "python_full_version == '3.10.*'",
+    "python_full_version == '3.9.*'",
+    "python_full_version == '3.8.*'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/15/29/80bc4fa049e166e0b8eda2a7220c5473809f2f96bb15f1f117abfb8dad7c/parmed-4.3.0.tar.gz", hash = "sha256:3d0208f56507649b5af91bbb128f650a6f86de1b5a9af780e6479145e5362ea3", size = 20197299, upload-time = "2024-10-30T21:27:51.114Z" }
 
 [[package]]
 name = "parso"
@@ -6924,6 +7004,37 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/02/cb/1eb53d71a86c2be1b92cb4c01d1c0bfcb36d71701455eb3721e2d28ac0e8/ray-2.10.0-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:f215eb704f2cb72e984d5a85fe435b4d74808c906950176789ba2101ce739082", size = 64215853, upload-time = "2024-03-21T18:43:10.372Z" },
     { url = "https://files.pythonhosted.org/packages/ae/1f/3549d4ce3bc230ac37e761989ccb0b86ab05f90d24a248a1f5bb6bfb02bb/ray-2.10.0-cp39-cp39-manylinux2014_x86_64.whl", hash = "sha256:32d97e5343578a3d37ab5f30148fa193dec46a21fa21f15b6f23fe48a420831a", size = 65091962, upload-time = "2024-03-21T18:43:40.735Z" },
     { url = "https://files.pythonhosted.org/packages/35/9f/c604a174096261149e7b5f9870f8727669fa0e103122ec57d0fa6e2cb686/ray-2.10.0-cp39-cp39-win_amd64.whl", hash = "sha256:917d081fc98500f244ebc0e8da836025e1e4fa52f21030b8336cb0a2c79e84e2", size = 25415642, upload-time = "2024-03-21T18:43:55.754Z" },
+]
+
+[[package]]
+name = "rdkit"
+version = "2025.3.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy", version = "1.21.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
+    { name = "numpy", version = "1.23.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.8.*'" },
+    { name = "numpy", version = "1.24.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "pillow", version = "9.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.8'" },
+    { name = "pillow", version = "10.4.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.8.*'" },
+    { name = "pillow", version = "11.2.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.9'" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f7/dd/325588bac4d71a7cc4acfe9c5565b896de4cf9d46cce9da325858a1075c4/rdkit-2025.3.5-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:323fd21ce62f8b6ca34cebb8d0d7cbd9c4d757f5bff76143e2d2c04c94c1304a", size = 31161247, upload-time = "2025-08-01T08:37:56.364Z" },
+    { url = "https://files.pythonhosted.org/packages/e3/5f/7341e6b03e1cf53ee2e82ebd7602e25c0596667c47a3e0bcd6c76ca039ed/rdkit-2025.3.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:1b8aee3c6c9fb0a8a3596a50595e4d88d1e02a70e9cb2d4626ab6134d4a5eceb", size = 28703723, upload-time = "2025-08-01T08:38:01.039Z" },
+    { url = "https://files.pythonhosted.org/packages/96/d0/50ce769d29262ca6fa6801dfcc30e9ce6b031a5590aec617f884ac79e209/rdkit-2025.3.5-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:1c70bb2ebcb42125ba6500d692a8ba4738f518f4c334ed1dd0885499617bff53", size = 35372548, upload-time = "2025-08-01T08:38:04.997Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/f9/dae8b9785e2cf0361a211166e28f673f283ed2d4829c30b8614537eb66f2/rdkit-2025.3.5-cp310-cp310-manylinux_2_28_x86_64.whl", hash = "sha256:07a6d212ce88a91bf8bc187cbd4c98d8a5af3e7c01a7a64b4215f46825456b80", size = 36272060, upload-time = "2025-08-01T08:38:09.233Z" },
+    { url = "https://files.pythonhosted.org/packages/e2/bd/af721a3b97d4a59b7d209c71561e9e1c17c08dc5cd2f6f26b69deea94ab1/rdkit-2025.3.5-cp310-cp310-win_amd64.whl", hash = "sha256:1bbc026a8bc873d890b9f79f5df9eec3f322f580dfb1aec9b50aaef8409be6f4", size = 23517085, upload-time = "2025-08-01T08:38:12.942Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/04/7724512f61e30cefb6e4af54cd3a1ccf622196acb199bc351017f207747e/rdkit-2025.3.5-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:010c18f84f474f8ff97b5fec6571296ab17475c4378beb5870aa8ea412cc61f2", size = 31161777, upload-time = "2025-08-01T08:38:16.552Z" },
+    { url = "https://files.pythonhosted.org/packages/6d/f3/c6c8352008b202351b57191cd9805090a2077d7ebcc301a7e65b38e62ce4/rdkit-2025.3.5-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:fb10ebcd3f2901a48922bfecb00de64c4589fd121af79b985768952a65436413", size = 28704087, upload-time = "2025-08-01T08:38:20.704Z" },
+    { url = "https://files.pythonhosted.org/packages/21/e1/5bec35b13ed5f88d11841bd73dbb32bdae02a317e094ab8737ee1e020920/rdkit-2025.3.5-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:9303de802d03f07936ffab6cd7fe4b9f488314e33fd0eaf3d29edd78cfd9cd88", size = 35367566, upload-time = "2025-08-01T08:38:24.535Z" },
+    { url = "https://files.pythonhosted.org/packages/40/17/d3df2ef69504418432364cd42add91da85012985320a571116d2a5492079/rdkit-2025.3.5-cp311-cp311-manylinux_2_28_x86_64.whl", hash = "sha256:eb92045567bfda71721f607d52a1d1a7a5dd101b853d62c13c01995f4052b6fb", size = 36271424, upload-time = "2025-08-01T08:38:28.8Z" },
+    { url = "https://files.pythonhosted.org/packages/54/7a/98ed651841c61ef761f401e569addf213c28867ab84862fbe4b7d8539f70/rdkit-2025.3.5-cp311-cp311-win_amd64.whl", hash = "sha256:58e7d4498c53205dfb1fa35850daadd7bb18da2791317f251216dc53616e8754", size = 23517947, upload-time = "2025-08-01T08:38:32.187Z" },
+    { url = "https://files.pythonhosted.org/packages/e1/f8/c14652ee6202bb7aecda961722aeafaf574b81aa57da792e5aa35368fad7/rdkit-2025.3.5-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:dd3af293b7f72fedbd1fa020ad0e1d5901e8e0cbaec475a8a7c5a3b4df4db50a", size = 31161370, upload-time = "2025-08-01T08:39:39.021Z" },
+    { url = "https://files.pythonhosted.org/packages/dc/78/164096c1630d500933db147a97e0a5b79fdea35cb21f28ceab70fe94fe9c/rdkit-2025.3.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:179417d14c9cc4e46329226d7df3b5a08307e4ea3f3f36ac3db85a32536436f1", size = 28703934, upload-time = "2025-08-01T08:39:42.596Z" },
+    { url = "https://files.pythonhosted.org/packages/e3/95/4461a6137b6f79ee3c5064c1af868921d8af9125b0f6dd989566e39c5fac/rdkit-2025.3.5-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:1683018df35ea90f237763994f2d17423cc50fa12bdd5152f13734dd6afde3dd", size = 35372444, upload-time = "2025-08-01T08:39:46.456Z" },
+    { url = "https://files.pythonhosted.org/packages/4c/c3/1968d5684b1874db71137aceef1904fccc822aca2963be0c2a3dee4ee226/rdkit-2025.3.5-cp39-cp39-manylinux_2_28_x86_64.whl", hash = "sha256:08f2e916cab7d4d89f4434bc9cb9eb6a7f2e39956a1642942a408ed5b993d842", size = 36272345, upload-time = "2025-08-01T08:39:50.782Z" },
+    { url = "https://files.pythonhosted.org/packages/56/2d/d94f51d6d73935a1358399c2470a8646b701045181fab243e608d2c75a6c/rdkit-2025.3.5-cp39-cp39-win_amd64.whl", hash = "sha256:3696cda2547117949f9b30ad1b02931d48f8512ea98e6ba7319316c7a5ef689e", size = 23519980, upload-time = "2025-08-01T08:39:54.29Z" },
 ]
 
 [[package]]

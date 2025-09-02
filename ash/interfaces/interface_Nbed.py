@@ -3,7 +3,7 @@ import pyscf
 from typing import Optional
 import ash
 
-from ash.functions.functions_general import ashexit, print_line_with_mainheader
+from ash.functions.functions_general import ashexit, BC, print_line_with_mainheader
 
 # NbedTheory object
 # https://github.com/UCL-CCS/Nbed
@@ -43,10 +43,18 @@ class NbedTheory:
         mm_charges: Optional[list] = None,
         mm_radii: Optional[list] = None,
 
+        label: str = "Nbed",
+        numcores: int = 1,  
+        GPU_pcgrad: bool = False
     ):
         print_line_with_mainheader("NbedTheory initialization")
         
+        self.theorynamelabel="Nbed"
         self.theorytype="QM"
+        self.analytic_hessian=False
+        self.label = label
+        self.numcores = numcores
+        self.GPU_pcgrad = GPU_pcgrad
         
         self.geometry = geometry
         self.n_active_atoms = n_active_atoms
@@ -98,6 +106,10 @@ class NbedTheory:
             Hessian=False
         ):
 
+        print(BC.OKBLUE, BC.BOLD, f"------------RUNNING {self.theorynamelabel} INTERFACE-------------", BC.END)
+        
+        print("Job label:", label)
+
         driver = nbed.driver.NbedDriver(
             geometry=self.geometry,
             n_active_atoms=self.n_active_atoms,
@@ -131,6 +143,9 @@ class NbedTheory:
             proj_data = driver._mu
         if self.projector == 'huzinaga':
             proj_data = driver._huzinaga
+
+        if mm_elems is not None:
+            print("MM elements:", mm_elems)
         
         emb_corr = (
             driver.e_env
