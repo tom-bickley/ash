@@ -106,12 +106,16 @@ class NbedTheory:
             Hessian=False
         ):
 
+        # prepare geometry string for nbed
+        lines = [f"{elem} {' '.join(f'{x:.7f}' for x in coords)}" for elem, coords in zip(qm_elems, current_coords)]
+        current_coords_string = f"{len(qm_elems)}\n\n" + "\n".join(lines)
+
         print(BC.OKBLUE, BC.BOLD, f"------------RUNNING {self.theorynamelabel} INTERFACE-------------", BC.END)
         
         print("Job label:", label)
 
         driver = nbed.driver.NbedDriver(
-            geometry=self.geometry,
+            geometry=current_coords_string,
             n_active_atoms=self.n_active_atoms,
             basis=self.basis,
             xc_functional=self.xc_functional,
