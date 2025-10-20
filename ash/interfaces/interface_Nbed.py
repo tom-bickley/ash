@@ -114,7 +114,7 @@ class NbedTheory:
         
         print("Job label:", label)
 
-        driver = nbed.driver.NbedDriver(
+        nbed_config = nbed.config.NbedConfig(
             geometry=current_coords_string,
             n_active_atoms=self.n_active_atoms,
             basis=self.basis,
@@ -143,39 +143,41 @@ class NbedTheory:
             run_qmmm=self.run_qmmm,
         )
 
+        nbed_result = nbed.nbed(nbed_config)
+
         if self.projector == 'mu':
-            proj_data = driver._mu
+            proj_data = nbed_result.mu
         if self.projector == 'huzinaga':
-            proj_data = driver._huzinaga
+            proj_data = nbed_result.huzinaga
 
         if mm_elems is not None:
             print("MM elements:", mm_elems)
         
         emb_corr = (
-            driver.e_env
-            + driver.two_e_cross
+            nbed_result.e_env
+            + nbed_result.two_e_cross
             - proj_data["correction"]
             - proj_data["beta_correction"]
         )
 
-        emb_ccsd, _ = driver._run_emb_CCSD(driver.embedded_scf)
+        emb_ccsd, _ = nbed_result._run_emb_ccsd(nbed_result.embedded_scf)
         emb_ccsdt_energy = emb_ccsd.e_tot + emb_ccsd.ccsd_t()
 
         self.energy = emb_ccsdt_energy + emb_corr
 
         # approx gradient with DFT gradient 
         if Grad:
-            g = driver._global_ks.nuc_grad_method()
+            g = nbed_result._global_ks.nuc_grad_method()
             self.gradient = g.kernel()
 
             # approx point charge gradient with DFT 
             if PC:
                 from .interface_pyscf import pyscf_pointcharge_gradient
                 import numpy as np
-                dm = driver._global_ks.make_rdm1()
+                dm = nbed_result._global_ks.make_rdm1()
                 current_MM_coords_bohr = current_MM_coords*ash.constants.ang2bohr
                 self.pcgrad = pyscf_pointcharge_gradient(
-                    driver._global_ks.mol,
+                    nbed_result._global_ks.mol,
                     np.array(current_MM_coords_bohr),
                     np.array(MMcharges),
                     dm,
@@ -189,4 +191,3 @@ class NbedTheory:
         
         else:
             return self.energy
-        
