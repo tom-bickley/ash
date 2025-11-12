@@ -1,0 +1,33 @@
+<ForceField>
+  <Info>
+    <DateGenerated>2025-11-05</DateGenerated>
+  </Info>
+  <AtomTypes>
+    <Type element="P" name="P1" class="P1" mass="30.9737622"/>
+    <Type element="O" name="O1" class="O1" mass="15.99943"/>
+  </AtomTypes>
+  <Residues>
+    <Residue name="LIG">
+      <Atom name="P1x" type="P1" charge="1.2428000000000001"/>
+      <Atom name="O1x" type="O1" charge="-1.0607"/>
+      <Atom name="O2x" type="O1" charge="-1.0607"/>
+      <Atom name="O3x" type="O1" charge="-1.0607"/>
+      <Atom name="O4x" type="O1" charge="-1.0607"/>
+      <Bond atomName1="O1x" atomName2="P1x"/>
+      <Bond atomName1="O2x" atomName2="P1x"/>
+      <Bond atomName1="O3x" atomName2="P1x"/>
+      <Bond atomName1="O4x" atomName2="P1x"/>
+    </Residue>
+  </Residues>
+  <HarmonicBondForce>
+    <Bond class1="O1" class2="P1" length="0.150900232257" k="548208.6827386"/>
+  </HarmonicBondForce>
+  <HarmonicAngleForce>
+    <Angle class1="O1" class2="P1" class3="O1" angle="1.8915399921586593" k="572.1717153174544"/>
+  </HarmonicAngleForce>
+  <NonbondedForce coulomb14scale="0.8333333333333334" lj14scale="0.5">
+    <UseAttributeFromResidue name="charge"/>
+    <Atom class="P1" sigma="0.37417746161894255" epsilon="0.8368000000000001"/>
+    <Atom class="O1" sigma="0.3039812205065809" epsilon="0.8795023257036865"/>
+  </NonbondedForce>
+</ForceField>
